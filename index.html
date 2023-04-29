@@ -3,67 +3,26 @@
   <head>
     <link rel="stylesheet" type="text/css" href="style.css">
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
-    <link rel="stylesheet"  href="style.css" />
+    <link rel="stylesheet" media="(max-width: 800px)" href="style.css" />
     <title>Gabriel</title>
   </head>
   <body>
-    <div class="main_page">
-      <div class="Informações">
-        <div class="redes-sociais">
-        
-         
-          <div id="smart-button-container">
-            <div style="text-align: center;">
-              <div id="paypal-button-container"></div>
-            </div>
-          </div>
-        <script src="https://www.paypal.com/sdk/js?client-id=sb&enable-funding=venmo&currency=BRL" data-sdk-integration-source="button-factory"></script>
-        <script>
-          
-          function initPayPalButton() {
-            paypal.Buttons({
-              style: {
-                shape: 'rect',
-                color: 'gold',
-                layout: 'vertical',
-                label: 'paypal',
-                
-              },
-      
-              createOrder: function(data, actions) {
-                return actions.order.create({
-                  purchase_units: [{"description":"Waves 9 completo ","amount":{"currency_code":"BRL","value":1}}]
-                });
-              },
-      
-              onApprove: function(data, actions) {
-                return actions.order.capture().then(function(orderData) {
-                  
-                  // Full available details
-                  console.log('Capture result', orderData, JSON.stringify(orderData, null, 2));
-      
-                  // Show a success message within this page, e.g.
-                  const element = document.getElementById('paypal-button-container');
-                  element.innerHTML = '';
-                  navigate('/success');
-      
-                  // Or go to another URL:  actions.redirect('thank_you.html');
-                  
-                });
-              },
-      
-              onError: function(err) {
-                console.log(err);
-              }
-            }).render('#paypal-button-container');
-          }
-          initPayPalButton();
-        </script>
-        
-            
-         
-        </div>
+    <div class="container">
+      <div class="pay">
+        <h1>Pague com pix, leia o qr code abaixo.</h1>
+        <img src="pix.png" alt="pix">
+     </div>
+
+     <div class="chave">
+      <h1>Ou use a chave: <br>1d07070b-c6dd-4911-9c56-74027e297bcc</h1>
+    </div>
+
+      <div class="info">
+        <h1>Após pagamento, envie o comprovante para: electronicplugins@gmail.com</h1>
+      </div>
      
-       
+    </div>
+      
+    
   </body>
 </html>
